@@ -96,7 +96,21 @@ Tree.hourKey = function(date) {
 
 Tree.prototype.archive = function() {
   if (!this.root) {
-    this.update({"$set": {archived: true}});
+    this.update({"$set": {archived: true, archivedAt: new Date()}});
+  }
+}
+
+Tree.prototype.unarchive = function() {
+  if (!this.root) {
+    this.update({"$unset": {archived: true, archivedAt: true}});
+  }
+}
+
+Tree.prototype.toggleArchive = function() {
+  if (this.archived) {
+    this.unarchive();
+  } else {
+    this.archive();
   }
 }
 
