@@ -18,7 +18,10 @@ Template.focus.helpers({
     return Tree.focused().val;
   },
   complete_text: function() {
-    return (Tree.focused().archived) ? "Unarchive" : "Archive"
+    return (Tree.focused().archived) ? "Unarchive" : "Archive";
+  },
+  fold_text: function() {
+    return (Tree.focused().folded) ? "Unfold" : "Fold";
   }
 });
 
@@ -28,8 +31,11 @@ Template.focus.rendered = function() {
 }
 
 Template.focus.events({
-  'click #archive-btn': function(event) {
+  'click #archive-btn': function() {
     Tree.focused().toggleArchive();
+  },
+  'click #fold-btn': function() {
+    Tree.focused().toggleFold();
   },
   'submit': function(event) {
     event.preventDefault();
