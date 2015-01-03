@@ -6,23 +6,19 @@ Template.focus.helpers({
     return AutocompleteHelper.settings_maker(AutocompleteHelper.parent_callback);
   },
   initial_value: function () {
-    tree = Tree.focused();
-    return tree.text;
+    return Tree.focused().text;
   },
   parent_value: function() {
-    tree = Tree.focused();
-    return "@(" + Tree.findOne(tree.parent).ref + ")";
+    return "@(" + Tree.findOne(Tree.focused().parent).ref + ")";
   },
   root: function() {
-    tree = Tree.focused();
-    return tree.root;
+    return Tree.focused().root;
   },
   val: function() {
     return Tree.focused().val;
   },
   complete_text: function() {
-    tree = Tree.focused();
-    return (tree.archived) ? "Unarchive" : "Archive"
+    return (Tree.focused().archived) ? "Unarchive" : "Archive"
   }
 });
 
