@@ -74,26 +74,6 @@ Tree.findOneByRef = function(ref) {
   return new Tree(Trees.findOne({ref: ref}));
 }
 
-Tree.yearKey = function (date) {
-  return "date." + date.getFullYear();
-}
-
-Tree.monthKey = function (date) {
-  return Tree.yearKey(date) + "." + date.getMonth();
-}
-
-Tree.monthDayKey = function (date) {
-  return Tree.monthKey(date) + "." + date.getDate();
-}
-
-Tree.weekDayKey = function(date) {
-  return Tree.monthDayKey(date) + "." + date.getDay();
-}
-
-Tree.hourKey = function(date) {
-  return Tree.weekDayKey(date) + "." + date.getHours();
-}
-
 Tree.prototype.archive = function() {
   if (!this.root) {
     this.update({"$set": {archived: true, archivedAt: new Date()}});
