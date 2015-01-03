@@ -32,6 +32,9 @@ Template.focus.rendered = function() {
 }
 
 Template.focus.events({
+  'click #complete-btn': function(event) {
+    Tree.focused().toggleArchive();
+  },
   'submit': function(event) {
     event.preventDefault();
     tree = Tree.focused();
