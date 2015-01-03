@@ -124,32 +124,6 @@ Tree.prototype.getParent = function() {
   return Tree.findOne(this.parent);
 }
 
-Tree.prototype.incCount = function(own, subtract, amount) {
-  if (amount === undefined) {
-    amount = subtract ? -this.val : this.val;
-  }
-
-  update = {};
-  if (own) { update["count"] = amount }
-
-  date = new Date();
-
-  update[Tree.yearKey(date) + ".count"] = amount;
-  update[Tree.monthKey(date) + ".count"] = amount;
-  update[Tree.monthDayKey(date) + ".count"] = amount;
-  update[Tree.weekDayKey(date) + ".count"] = amount;
-  update[Tree.hourKey(date)] = amount;
-  update["total_count"] = amount;
-  this.update({"$inc": update});
-
-  if (this.parent !== undefined)  {
-    this.getParent().incCount(false, subtract, amount);
-  }
-  if (this.links) {
-    this.links.forEach(function (link) { Tree.findOne(link).incCount(false, subtract, amount) });
-  }
-}
-
 Tree.prototype.fold = function(val) {
   this.update({"$set":{folded: val}});
 }
