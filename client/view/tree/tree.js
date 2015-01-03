@@ -35,6 +35,11 @@ Template.tree.helpers({
       return false;
     }
   },
+  archived_class: function(tree) {
+    if (tree.archived) {
+      return "archived";
+    }
+  },
   focused_class: function(tree) {
     c = "tree";
     if (tree.focused) {
