@@ -29,9 +29,6 @@ if (Meteor.isServer) {
       seedData();
     }
 
-    Meteor.publish("user_trees", function() {
-      return Trees.find({uid: this.userId});
-    });
     Meteor.publish("user_trees_unarchived", function() {
       return Trees.find({uid: this.userId, archived: false});
     });
