@@ -1,0 +1,65 @@
+<template name="help">
+  {{#if help}}
+    <a id="hide-help">Hide Help</a>
+    <table>
+      <tr>
+        <td>API URL</td>
+        <td>{{api_inc_url}}</td>
+      </tr>
+      <tr>
+        <td>Up</td>
+        <td>Focus previous sibling</td>
+      </tr>
+      <tr>
+        <td>Down</td>
+        <td>Focus next sibling</td>
+      </tr>
+      <tr>
+        <td>Left</td>
+        <td>Focus parent</td>
+      </tr>
+      <tr>
+        <td>Right</td>
+        <td>Focus children</td>
+      </tr>
+      <tr>
+        <td>Shift+Up</td>
+        <td>Move tree up</td>
+      </tr>
+      <tr>
+        <td>Shift+Down</td>
+        <td>Move tree down</td>
+      </tr>
+      <tr>
+        <td>Space</td>
+        <td>Increment focused</td>
+      </tr>
+      <tr>
+        <td>Shift+Space</td>
+        <td>Decrement focused</td>
+      </tr>
+      <tr>
+        <td>Enter</td>
+        <td>Toggle focused folding</td>
+      </tr>
+      <tr>
+        <td>Ctrl+N</td>
+        <td>Create new child</td>
+      </tr>
+      <tr>
+        <td>Ctrl+S</td>
+        <td>Edit focused tree</td>
+      </tr>
+      <tr>
+        <td>Ctrl+X</td>
+        <td>Archive focused tree</td>
+      </tr>
+      <tr>
+        <td>Ctrl+Space</td>
+        <td>Activate quickswitcher</td>
+      </tr>
+    </table>
+  {{else}}
+    <a id="show-help">Show Help</a>
+  {{/if}}
+</template>
