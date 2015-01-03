@@ -4,6 +4,14 @@ TreeView = {
     Tree.focused().archive();
     TreeView.focus.byId(nearest);
   },
+  handleCreateForm: function() {
+    $form = $('#create_form');
+    if ($form.length == 0) {
+      TreeView.insertCreateForm();
+    } else {
+      $('#create_form input').blur();
+    }
+  },
   insertCreateForm: function() {
     $('.focused > ul').removeClass("folded");
     Blaze.render(Template.create_form, $('.focused > ul')[0]);
