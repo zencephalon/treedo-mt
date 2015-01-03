@@ -32,12 +32,12 @@ Template.focus.rendered = function() {
 }
 
 Template.focus.events({
-  'click #complete-btn': function(event) {
+  'click #archive-btn': function(event) {
     Tree.focused().toggleArchive();
   },
   'submit': function(event) {
     event.preventDefault();
-    tree = Tree.focused();
+    var tree = Tree.focused();
     tree.updateText($(event.target).find('input[name=text]').val(), true);
     tree.updateVal($(event.target).find('input[name=val]').val(), true);
     $(event.target).find('input').blur();
