@@ -41,11 +41,9 @@ Template.tree.helpers({
     }
   },
   focused_class: function(tree) {
-    c = "tree";
     if (tree.focused) {
-      c += " focused";
+      return "focused";
     }
-    return c;
   },
   val: function(tree) {
     val = tree.val;
