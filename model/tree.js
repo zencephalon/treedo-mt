@@ -102,7 +102,7 @@ Tree.prototype.archive = function() {
 
 Tree.prototype.unarchive = function() {
   if (!this.root) {
-    this.update({"$unset": {archived: true, archivedAt: true}});
+    this.update({"$set": {archived: false}});
   }
 }
 
