@@ -31,6 +31,7 @@ Template.focus.rendered = function() {
 }
 
 Template.focus.events({
+  'click #new-btn': TreeView.handleCreateForm,
   'click #archive-btn': function() {
     Tree.focused().toggleArchive();
   },
