@@ -34,6 +34,10 @@ footer { font-size: 0.7em; margin-top: 2em;}
   font-size: 120%;
 }
 
+.archived {
+  text-decoration: line-through;
+}
+
 .tree {
   font-size: 93%;
   line-height: 93%;
