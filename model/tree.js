@@ -145,9 +145,10 @@ Tree.prototype.kids = function() {
     this.children
   ).map(
     function(o) {return Tree.findOne(o)}
-  ).reject(
-    function(tree) { return tree.archived }
   ).value();
+  // ).reject(
+  //   function(tree) { return tree.archived }
+  // ).value();
 }
 
 Tree.prototype.createChild = function(o) {
