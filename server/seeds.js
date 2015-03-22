@@ -9,10 +9,7 @@ function seedData() {
 
 if (Meteor.isServer) {
   Accounts.onCreateUser(function(options, user) {
-    tree = Tree.create({text: "User", root: true, uid: user._id, focused: true});
-    tree.createChild({text: "Nature"});
-    tree.createChild({text: "Skills"});
-    tree.createChild({text: "Quests"});
+    tree = Tree.create({text: "Quests", root: true, uid: user._id, focused: true});
     user['profile'] = {};
     user['profile']['show_help'] = true;
     return user;
