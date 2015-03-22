@@ -29,11 +29,8 @@ if (Meteor.isServer) {
       seedData();
     }
 
-    Meteor.publish("user_trees_unarchived", function() {
-      return Trees.find({uid: this.userId, archived: false});
-    });
-    Meteor.publish("user_trees_archived", function() {
-      return Trees.find({uid: this.userId, archived: true, archivedAt: {"$gt": new Date(Date.now() - 24*60*60*1000)}});
+    Meteor.publish("trees", function() {
+      return Trees.find({});
     });
     Meteor.publish("tree", function(_id) {
       return Trees.find({_id: _id});
