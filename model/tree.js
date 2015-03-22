@@ -109,14 +109,9 @@ Tree.prototype.fold = function(val) {
 }
 
 Tree.prototype.kids = function() {
-  return _.chain(
-    this.children
-  ).map(
+  return _(this.children).map(
     function(o) {return Tree.findOne(o)}
-  ).value();
-  // ).reject(
-  //   function(tree) { return tree.archived }
-  // ).value();
+  );
 }
 
 Tree.prototype.createChild = function(o) {
