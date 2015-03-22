@@ -2,7 +2,7 @@
 <div class="tree {{focused_class this}} {{archived_class this}}" data-id="{{_id}}">
   <p>{{text}} <span class="grey">{{#if folded_has_kids}}[+]{{/if}}</span></p>
   <ul class={{folded_class this}}>
-    {{#each kids}}
+    {{#each display_kids this}}
       {{> tree}}
     {{/each}}
   </ul>

@@ -6,6 +6,9 @@ Template.tree.events({
 });
 
 Template.tree.helpers({
+  display_kids: function(tree) {
+    return Session.get("archive") ? tree.kids() : _(tree.kids()).reject(function(tree) { return tree.archived });
+  },
   folded_class: function(tree) {
     if (tree.folded) {
       return "folded";

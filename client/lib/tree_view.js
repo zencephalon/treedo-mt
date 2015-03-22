@@ -1,11 +1,14 @@
 TreeView = {
+  toggleArchiveView: function() {
+    Session.set("archive", ! Session.get("archive"));
+  },
   removeFocused: function() {
-    nearest = TreeView.find.nearest();
+    var nearest = TreeView.find.nearest();
     Tree.focused().archive();
     TreeView.focus.byId(nearest);
   },
   handleCreateForm: function() {
-    $form = $('#create_form');
+    var $form = $('#create_form');
     if ($form.length == 0) {
       TreeView.insertCreateForm();
     } else {
@@ -19,9 +22,9 @@ TreeView = {
     Tree.focused().fold(false);
   },
   updateChildrenFromDOM: function() {
-    parent = TreeView.find.parent();
-    tree = Tree.findOne(parent.data('id'));
-    children = _.map(
+    var parent = TreeView.find.parent();
+    var tree = Tree.findOne(parent.data('id'));
+    var children = _.map(
       parent.find('ul').eq(0).children('div'),
       function(tree) { return tree.getAttribute('data-id') }
     );
@@ -29,8 +32,8 @@ TreeView = {
   },
   move: {
     nextSibling: function() {
-      $next = TreeView.find.nextSibling();
-      $first = TreeView.find.firstSibling();
+      var $next = TreeView.find.nextSibling();
+      var $first = TreeView.find.firstSibling();
 
       if ($next.data('id')) {
         $next.after($('.focused'));
@@ -40,8 +43,8 @@ TreeView = {
       TreeView.updateChildrenFromDOM();
     },
     prevSibling: function() {
-      $prev = TreeView.find.prevSibling();
-      $last = TreeView.find.lastSibling();
+      var $prev = TreeView.find.prevSibling();
+      var $last = TreeView.find.lastSibling();
 
       if ($prev.data('id')) {
         $prev.before($('.focused'));
@@ -78,11 +81,11 @@ TreeView = {
       return TreeView.find.generic(id, $('.focused').children('ul').children().first());
     },
     nearest: function() {
-      $next = TreeView.find.nextSibling();
+      var $next = TreeView.find.nextSibling();
       if ($next.length > 0 && !$next.hasClass('focused')) {
         return $next.data('id');
       } else {
-        $prev = TreeView.find.prevSibling();
+        var $prev = TreeView.find.prevSibling();
         if ($prev.length > 0 && !$prev.hasClass('focused')) {
           return $prev.data('id');
         } else {
@@ -123,13 +126,13 @@ TreeView = {
       );
     },
     parent: function() {
-      $parent = TreeView.find.parent(true);
+      var $parent = TreeView.find.parent(true);
       if ($parent) {
         TreeView.focus.byId($parent);
       }
     },
     children: function() {
-      $child = TreeView.find.firstChild(true);
+      var $child = TreeView.find.firstChild(true);
       if ($child) {
         TreeView.focus.byId($child);
       }

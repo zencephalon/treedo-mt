@@ -16,6 +16,9 @@ Mousetrap.bind('left', function() {
 Mousetrap.bind('right', function() {
   TreeView.focus.children();
 });
+Mousetrap.bind('ctrl+h', function() {
+  TreeView.toggleArchiveView();
+})
 Mousetrap.bind('space', function() {
   Tree.focused().toggleArchive();
   return false;
