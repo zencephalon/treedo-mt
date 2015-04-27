@@ -11,6 +11,7 @@
         <td>Parent</td>
         <td>{{> inputAutocomplete settings=parent_settings id="focus-edit-parent" value=parent_value name="parent"}}</td>
       </tr>
+      {{/unless}}
       <tr>
         <button style="display:none"></button><!-- fix weird submit creating click problem -->
         <td><button id="archive-btn">{{complete_text}}</button></td>
@@ -19,7 +20,6 @@
       <tr>
         <td><button id="new-btn">New</button></td>
       </tr>
-      {{/unless}}
     </table>
     <br>
     <input type="submit" style="display:none">
