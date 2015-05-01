@@ -20,7 +20,12 @@ Mousetrap.bind('ctrl+h', function() {
   TreeView.toggleArchiveView();
 })
 Mousetrap.bind('space', function() {
-  Tree.focused().toggleArchive();
+  var tree = Tree.focused();
+  if (! tree.archived) {
+    TreeView.removeFocused();
+  } else {
+    Tree.focused().toggleArchive();
+  }
   return false;
 });
 Mousetrap.bind('ctrl+n', function() {
