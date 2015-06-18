@@ -23,10 +23,10 @@ if (Meteor.isServer) {
     }
 
     Meteor.publish("trees", function() {
-      return Trees.find({});
+      return Trees.find({uid: this.userId});
     });
     Meteor.publish("tree", function(_id) {
-      return Trees.find({_id: _id});
+      return Trees.find({_id: _id, uid: this.userId});
     });
   })
 }
