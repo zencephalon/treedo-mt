@@ -16,7 +16,7 @@ Mousetrap.bind('left', function() {
 Mousetrap.bind('right', function() {
   TreeView.focus.children();
 });
-Mousetrap.bind('ctrl+h', function() {
+Mousetrap.bind('alt+h', function() {
   TreeView.toggleArchiveView();
 })
 Mousetrap.bind('space', function() {
@@ -28,13 +28,13 @@ Mousetrap.bind('space', function() {
   }
   return false;
 });
-Mousetrap.bind('ctrl+n', function() {
+Mousetrap.bind('alt+n', function() {
   TreeView.handleCreateForm()
 });
-Mousetrap.bind('ctrl+x', function() {
+Mousetrap.bind('alt+x', function() {
   TreeView.removeFocused();
 });
-Mousetrap.bind('ctrl+s', function() {
+Mousetrap.bind('alt+s', function() {
   $('#focus-edit-text').focus();
 });
 Mousetrap.bind('enter', function() {

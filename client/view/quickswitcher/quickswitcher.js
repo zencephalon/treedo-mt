@@ -24,7 +24,7 @@ Template.quickswitcher.helpers({
 });
 
 Template.quickswitcher.rendered = function() {
-  Mousetrap.bind('ctrl+space', function(e) {
+  Mousetrap.bind('alt+space', function(e) {
     e.preventDefault();
     $('#quickswitcher').show();
 
