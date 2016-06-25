@@ -7,7 +7,7 @@ Template.tree.events({
 
 Template.tree.helpers({
   display_kids: function(tree) {
-    return Session.get("archive") ? tree.kids() : _(tree.kids()).reject(function(tree) { return tree.archived });
+    return tree.kids();
   },
   folded_class: function(tree) {
     if (tree.folded) {
@@ -18,7 +18,11 @@ Template.tree.helpers({
   },
   archived_class: function(tree) {
     if (tree.archived) {
-      return "archived";
+      if (Session.get("archive")) {
+        return "archived";
+      } else {
+        return "hidden";
+      }
     }
   },
   focused_class: function(tree) {
