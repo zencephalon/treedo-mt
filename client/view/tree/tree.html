@@ -1,5 +1,5 @@
 <template name="tree">
-<div class="tree {{focused_class this}} {{archived_class this}}" data-id="{{_id}}">
+<div class="tree {{focused_class this}} {{archived_class this}} {{visible_class this}}" data-id="{{_id}}">
   <p>{{text}} <span class="grey">{{#if folded_has_kids}}[+]{{/if}}</span></p>
   <ul class={{folded_class this}}>
     {{#each display_kids this}}

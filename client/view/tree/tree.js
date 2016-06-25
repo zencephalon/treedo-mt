@@ -6,36 +6,11 @@ Template.tree.events({
 });
 
 Template.tree.helpers({
-  display_kids: function(tree) {
-    return tree.kids();
-  },
-  folded_class: function(tree) {
-    if (tree.folded) {
-      return "folded";
-    } else {
-      return false;
-    }
-  },
-  archived_class: function(tree) {
-    if (tree.archived) {
-      if (Session.get("archive")) {
-        return "archived";
-      } else {
-        return "hidden";
-      }
-    }
-  },
-  focused_class: function(tree) {
-    if (tree.focused) {
-      return "focused";
-    }
-  },
-  val: function(tree) {
-    val = tree.val;
-    if (val > 1) {
-      return "<span class='green'>" + val + "</span>";
-    } else {
-      return "<span class='grey'>" + val + "</span>";
-    }
-  }
+  display_kids: tree => tree.kids(),
+  folded_class: tree => (tree.folded ? 'folded' : ''),
+  visible_class: tree => (
+    (tree.archived && Session.get('archive')) ? 'hidden' : 'visible'
+  ),
+  archived_class: tree => (tree.archived ? 'archived' : ''),
+  focused_class: tree => (tree.focused ? 'focused' : ''),
 });
