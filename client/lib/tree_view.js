@@ -63,22 +63,22 @@ TreeView = {
       }
     },
     nextSibling: function(id) {
-      return TreeView.find.generic(id, $('.focused').next('div'));
+      return TreeView.find.generic(id, $('.focused').next('div.visible'));
     },
     prevSibling: function(id) {
-      return TreeView.find.generic(id, $('.focused').prev('div'));
+      return TreeView.find.generic(id, $('.focused').prev('div.visible'));
     },
     firstSibling: function(id) {
-      return TreeView.find.generic(id, $('.focused').parent().children().first());
+      return TreeView.find.generic(id, $('.focused').parent().children('div.visible').first());
     },
     lastSibling: function(id) {
-      return TreeView.find.generic(id, $('.focused').parent().children().last());
+      return TreeView.find.generic(id, $('.focused').parent().children('div.visible').last());
     },
     parent: function(id) {
       return TreeView.find.generic(id, $('.focused').parent().parent('div'));
     },
     firstChild: function(id) {
-      return TreeView.find.generic(id, $('.focused').children('ul').children().first());
+      return TreeView.find.generic(id, $('.focused').children('ul').children('div.visible').first());
     },
     nearest: function() {
       var $next = TreeView.find.nextSibling();
