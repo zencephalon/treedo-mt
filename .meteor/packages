@@ -10,4 +10,5 @@ zencephalon:autocomplete
 iron:router@1.0.0-pre2
 accounts-facebook
 
-standard-minifiers
+standard-minifier-css
+standard-minifier-js
