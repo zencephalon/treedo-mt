@@ -63,10 +63,10 @@ TreeView = {
       }
     },
     nextSibling: function(id) {
-      return TreeView.find.generic(id, $('.focused').next('div.visible'));
+      return TreeView.find.generic(id, $('.focused').nextAll('div.visible').first());
     },
     prevSibling: function(id) {
-      return TreeView.find.generic(id, $('.focused').prev('div.visible'));
+      return TreeView.find.generic(id, $('.focused').prevAll('div.visible').first());
     },
     firstSibling: function(id) {
       return TreeView.find.generic(id, $('.focused').parent().children('div.visible').first());
