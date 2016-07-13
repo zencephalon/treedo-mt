@@ -16,7 +16,7 @@ Mousetrap.bind('left', function() {
 Mousetrap.bind('right', function() {
   TreeView.focus.children();
 });
-Mousetrap.bind('alt+h', function() {
+Mousetrap.bind('ctrl+h', function() {
   TreeView.toggleArchiveView();
 })
 Mousetrap.bind('space', function() {
