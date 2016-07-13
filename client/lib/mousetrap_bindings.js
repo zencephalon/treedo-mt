@@ -28,13 +28,13 @@ Mousetrap.bind('space', function() {
   }
   return false;
 });
-Mousetrap.bind('alt+n', function() {
+Mousetrap.bind('ctrl+n', function() {
   TreeView.handleCreateForm()
 });
-Mousetrap.bind('alt+x', function() {
+Mousetrap.bind('ctrl+x', function() {
   TreeView.removeFocused();
 });
-Mousetrap.bind('alt+s', function() {
+Mousetrap.bind('ctrl+s', function() {
   $('#focus-edit-text').focus();
 });
 Mousetrap.bind('enter', function() {
